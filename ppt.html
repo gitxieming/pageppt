@@ -401,13 +401,16 @@
 	  width: 100%;
 	  text-align: center;
 	}
+	[data-build] > *.to-build {
+  		opacity: 0;
+	}
 	</style>
 </head>
 <body>
     <div class="presentation">
       	<div id="presentation-counter">1</div>
 	    <div class="slides">
-	          
+
 		    <div class="slide ">
 		      <style>
 		        .intro h1, .intro h2 {
@@ -440,13 +443,13 @@
 		      </section>
 		    </div>
 
-		    <div class="slide distant-slide">
+		    <div class="slide ">
 		      <section class="middle formula">
 		        单条居中
 		      </section>
 		    </div>
 
-		    <div class="slide distant-slide">
+		    <div class="slide ">
 		      <header><h1>head</h1></header>
 
 		      <section>
@@ -456,7 +459,7 @@
 		      </section>
 		    </div>
 
-		    <div class="slide distant-slide">
+		    <div class="slide ">
 		      <header><h1>head</h1></header>
 
 		      <section>
@@ -468,7 +471,7 @@
 		      </section>
 		    </div>
 
-		    <div class="slide distant-slide">
+		    <div class="slide ">
 		          <header><h1>head</h1></header>
 		          <section>
 					<ul>
@@ -491,13 +494,36 @@
 		          </section>
 			</div>
 
+		    <div class="slide ">
+		          <header><h1>head</h1></header>
+		          <section>
+					<ul>
+						<li>
+							<h2>h2</h2>
+							<pre>
+								html, css, js ,code
+							</pre>
+						</li>
+						<p>
+							text
+						</p>
+						<p data-build>
+							build-test :
+							<span class="html">html</span>
+							<span class="css">css</span>
+							<span class="js">js</span>
+						</p>
+						</li>
+					</ul>
+		          </section>
+			</div>
 	    </div> <!-- slides -->
     </div> <!-- presentation -->
 
     <script>
       (function() {
         var doc = document;
-        var disableBuilds = true;
+        var disableBuilds = false;
 
         var ctr = 0;
         var spaces = /\s+/, a1 = [''];
@@ -706,6 +732,7 @@
             return new Slide(el, idx);
           });
           var h = window.location.hash;
+
           try {
             this.current = parseInt(h.split('#slide')[1], 10);
           } catch (e) { /* squeltch */ }
