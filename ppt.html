@@ -406,7 +406,17 @@
 	}
 	[data-build] > * {
 	  transition: opacity 0.5s ease-in-out 0.2s;
-	}	
+	}
+	.notes {
+		display: none;
+		-webkit-border-radius:10px;
+		-khtml-border-radius:10px;
+		-moz-border-radius:10px;
+		border-radius:10px;
+		border:2px dashed #0687FF;
+		background:rgba(255, 255, 255, 0.4);
+		padding: 10px 20px;
+	}		
 	</style>
 </head>
 <body>
@@ -520,6 +530,34 @@
 					</ul>
 		          </section>
 			</div>
+
+		    <div class="slide ">
+		          <header><h1>head</h1></header>
+		          <section>
+					<ul>
+						<li>
+							<h2>h2</h2>
+							<pre>
+								html, css, js ,code
+							</pre>
+						</li>
+						<p class="notes">
+							notes1
+						</p>
+						<p data-build>
+							build-test :
+							<span class="html">html</span>
+							<span class="css">css</span>
+							<span class="js">js</span>
+						</p>
+						<p class="notes">
+							notes2
+						</p>						
+						</li>
+					</ul>
+		          </section>
+			</div>
+
 	    </div> <!-- slides -->
     </div> <!-- presentation -->
 
@@ -794,7 +832,7 @@
           showNotes: function() {
             var isOn = this._notesOn = !this._notesOn;
             query('.notes').forEach(function(el) {
-              el.style.display = (notesOn) ? 'block' : 'none';
+              el.style.display = (isOn) ? 'block' : 'none';
             });
           },
           switch3D: function() {
@@ -829,7 +867,7 @@
               case 39: // right arrow
               case 32: // space
                 this.next(); break;
-              case 50: // 2
+              case 78: // N
                 this.showNotes(); break;
               case 51: // 3
                 this.switch3D(); break;
